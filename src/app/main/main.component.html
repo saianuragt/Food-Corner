@@ -3,10 +3,25 @@
         <img src="../../assets/logo.png" alt="logo" width="175px" height="100px">
         <!-- <h2>Welcome to Food-Corner</h2> -->
     </div>
+    <!-- <div id="nav"> 
+        <img src="../../assets/user-black.png" alt="user-profile" id="menu4">
+        <img src="../../assets/shopping-cart-black.png" alt="cart-logo" id="menu3" routerLink="/cart">
+        <input type="text" id="menu2" [(ngModel)]="searchName" placeholder="  Search Item">
+        <button id="menu1" routerLink='/home'>Home</button>
+    </div> -->
     <div id="nav"> 
         <img src="../../assets/user-black.png" alt="user-profile" id="menu4">
         <img src="../../assets/shopping-cart-black.png" alt="cart-logo" id="menu3" routerLink="/cart">
         <input type="text" id="menu2" [(ngModel)]="searchName" placeholder="  Search Item">
+        <button class="b1" mat-button [matMenuTriggerFor]="menu">Categories</button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)='setname("indian")'>Indian</button>
+        <button mat-menu-item (click)='setname("american")'>American</button>
+        <button mat-menu-item (click)='setname("italian")'>Italian</button>
+        <button mat-menu-item (click)='setname("chinese")'>Chinese</button>
+        <button mat-menu-item (click)='setname("soft-drink")'>Soft-Drinks</button>
+        <button mat-menu-item (click)='setname("ice-cream")'>Ice-Creams</button>
+        </mat-menu>
         <button id="menu1" routerLink='/home'>Home</button>
     </div>
 </div>

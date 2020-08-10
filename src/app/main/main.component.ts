@@ -45,4 +45,7 @@ export class MainComponent implements OnInit {
     });
   }
 
+  setname(type:string){
+    this.searchName=type;
+  }
 }
