@@ -1,0 +1,36 @@
+<div class="head">
+    <div id="title">
+        <img src="../../assets/logo.png" alt="logo" width="175px" height="100px">
+        <!-- <h2>Welcome to Food-Corner</h2> -->
+    </div>
+    <div id="nav"> 
+        <img src="../../assets/user-black.png" alt="user-profile" id="menu4">
+        <img src="../../assets/shopping-cart-black.png" alt="cart-logo" id="menu3" routerLink="/cart">
+        <input type="text" id="menu2" [(ngModel)]="searchName" placeholder="  Search Item">
+        <button id="menu1" routerLink='/home'>Home</button>
+    </div>
+</div>
+<div class="body">
+    <ul class='list'>      
+        <li class="grid" *ngFor='let fooddata of fooddata | filter: searchName'>
+        <mat-card class="example-card">
+            <mat-card-header class="content">
+            <mat-card-title>{{fooddata.name}}</mat-card-title>
+            <mat-card-subtitle>{{fooddata.type}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{imgsrc+fooddata.image}} alt="image" width="150px" height="250px">
+            <mat-card-content class="content" >
+            <p>Price : {{fooddata.price |currency:'INR'}}</p>
+            </mat-card-content>
+            <button class="button" (click)="addtoCart(fooddata);openSnackBar()">Add To Cart</button>
+        </mat-card>
+        </li>
+    </ul>
+</div>`
+<div class="footer">
+    <hr>
+    <h2><b>About Us</b></h2>
+    <h3>Food-Corner</h3>
+    <h3>Ph - 9988776655</h3>
+    <h3>Email - food.corner@gmail.com</h3>
+</div>

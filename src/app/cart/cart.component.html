@@ -1,0 +1,64 @@
+<div class="head">
+    <div id="title">
+        <img src="../../assets/logo.png" alt="logo" width="175px" height="100px">
+        <!-- <h2>Welcome to Food-Corner</h2> -->
+    </div>
+    <div id="nav"> 
+        <img src="../../assets/user-black.png" alt="user-profile" id="menu4">
+        <img src="../../assets/shopping-cart-black.png" alt="cart-logo" id="menu3" routerLink="/cart">
+        <input type="text" id="menu2" [(ngModel)]="searchName" placeholder="  Search Item">
+        <button id="menu1" routerLink="/home">Home</button>
+    </div>
+</div>
+<div class="body">
+    <!-- <ul class="list" >
+        <li class="grid" *ngFor='let cart of cart | filter: searchName'>
+        <mat-card class="example-card">
+            <mat-card-header class="content">
+            <mat-card-title>{{cart.name}}</mat-card-title>
+            <mat-card-subtitle>{{cart.type}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{imgsrc+cart.image}} alt="image" width="150px" height="250px">
+            <mat-card-content class="content" >
+            <p>Price : {{cart.price |currency:'INR'}}</p>
+            <p>Quantity : {{cart.quantity}}</p>
+            <button class="button">Delete Item</button>
+            </mat-card-content>
+           
+        </mat-card> 
+        </li>
+    </ul> -->
+    <ul class="list" >
+        <li class="grid" *ngFor='let cart of cart | filter: searchName'>
+        <mat-card class="example-card">
+            <mat-card-header class="content">
+            <mat-card-title>{{cart.name}}</mat-card-title>
+            <mat-card-subtitle>{{cart.type}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{imgsrc+cart.image}} alt="image" width="100px" height="200px">
+            <mat-card-content class="content" >
+            <p>Price : {{cart.price |currency:'INR'}}</p>
+            <div id="display">
+                <button class="a1" (click)='addquantity(cart)'>+1</button><br>
+                <p class="a2">Quantity : {{cart.quantity}}</p><br>
+                <button class="a1" (click)='deletequantity(cart)'>-1</button>
+            </div>
+            <br>
+            <h4 id="price"> Sub -Toatl : {{cart.total |currency:'INR'}}</h4>
+            <button class="button" (click)='deleteitem(cart)'>Delete Item</button>
+            </mat-card-content>
+           
+        </mat-card> 
+        </li>
+    </ul>
+    <br>
+    <h3 class="footer"><b>Total : {{ fun() | currency: 'INR'}}</b></h3>
+    <button class="button1" (click)="openSnackBar()">Place Order</button>
+</div>
+<div class="footer">
+    <hr>
+    <h3>About Us</h3>
+    <h4>Food-Corner</h4>
+    <h4>Ph - 9988776655</h4>
+    <h4>food.corner@gmail.com</h4>
+</div>
